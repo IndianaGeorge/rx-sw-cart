@@ -24,7 +24,7 @@ export default ()=>{
                     </li>
                 )}
             </ul>
-            <span className={Styles.Total}>Total: {total} credits</span>
+            <span className={Styles.Total}>Total: {total?total:0} credits</span>
             <button onClick={checkout}>Checkout</button>
         </div>
     );
