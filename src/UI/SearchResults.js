@@ -1,39 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CartContext from '../Context/CartContext';
+import { useBehaviorSubject } from 'react-rxjs-tools';
+import SearchContext from '../Context/SearchContext';
 import Styles from './SearchResults.module.css';
 import { Link } from 'react-router-dom';
 import Overlay from 'react-loading-retry-overlay';
 
 export default ()=>{
-    const inCart = true;
-    const results = [
-        {
-            name: "Item Numero uno",
-            id: 1,
-        },
-        {
-            name: "Item Numero dos",
-            id: 2,
-        },
-        {
-            name: "Item Numero tres",
-            id: 3,
-        },
-        {
-            name: "Item Numero cuatro",
-            id: 4,
-        },
-    ];
+    const CartController = useContext(CartContext);
+    const [items] = useBehaviorSubject(CartController.getItemsSubject());
+    const inCart = {};
+    items.reduce((acc,item)=>{
+        inCart[item.id] = true;
+    },0);
+    const SearchController = useContext(SearchContext);
+    const [results] = useBehaviorSubject(SearchController.GetResultsSubject());
+    const [status] = useBehaviorSubject(SearchController.GetStatusSubject());
     return (
         <div className={Styles.SearchResults}>
-            <Overlay>
+            <Overlay
+                error={status===SearchController.states.error}
+                loading={status===SearchController.states.loading}
+            >
                 <ul className={Styles.ResultsList}>
                         {results.map((item)=>
                             <li key={item.id}>
                                 <Link className={Styles.Item} to={`/detail/${item.id}`}>
-                                    {item.name}
+                                    <span>{item.name}</span><span>{item.cost_in_credits} credits</span>
                                 </Link>
                                 {
-                                    inCart?
+                                    inCart[item.id]?
                                     <div className={Styles.Label}>in cart</div>
                                     :
                                     null

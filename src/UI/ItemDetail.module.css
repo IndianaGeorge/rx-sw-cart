@@ -18,6 +18,7 @@ h3 {
     border-radius: 1em;
     margin-left: 0.5em;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .HeaderWrap {

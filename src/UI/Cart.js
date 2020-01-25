@@ -1,24 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useBehaviorSubject } from 'react-rxjs-tools';
+import CartContext from '../Context/CartContext';
 import Styles from './Cart.module.css';
 import Overlay from 'react-loading-retry-overlay';
 
 export default ()=>{
-    const items = [
-        {
-            name: "Item Numero dos",
-            qty: 1,
-            id: 2,
-            unitCost: 100,
-        },
-        {
-            name: "Item Numero tres",
-            qty: 4,
-            id: 3,
-            unitCost: 250,
-        },
-    ];
+    const CartController = useContext(CartContext);
+    const [items] = useBehaviorSubject(CartController.getItemsSubject());
+    const [total] = useBehaviorSubject(CartController.getTotalSubject());
     const removeItem = (id)=>{
-        console.log('requested removal from cart of:',id);
+        CartController.remove(id);
     }
     const checkout = ()=>{
         console.log('checkout requested');
@@ -29,12 +20,12 @@ export default ()=>{
             <ul className={Styles.ItemList}>
                 {items.map((item)=>
                     <li key={item.id}>
-                        <span>{item.name} (x{item.qty})</span>
                         <button onClick={removeItem.bind(null,item.id)}>X</button>
+                        <span>{item.name} (x{item.qty})</span>
                     </li>
                 )}
             </ul>
-            <span className={Styles.Total}>Total: {items.reduce((acc,item)=>acc+item.unitCost,0)} credits</span>
+            <span className={Styles.Total}>Total: {total} credits</span>
             <button onClick={checkout}>Checkout</button>
         </div>
     );
