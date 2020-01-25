@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --color-primary-h:210;
+  --color-primary-s:88%;
+  --color-primary-l:20%;
+  --color-primary: hsl(
+    var(--color-primary-h),
+    var(--color-primary-s),
+    var(--color-primary-l)
+  );
+  --color-faded-primary: hsl(
+    var(--color-primary-h),
+    var(--color-primary-s),
+    90%
+  );
+  --color-passive-background-h:206;
+  --color-passive-background-s:52%;
+  --color-passive-background-l:47%;
+  --color-passive-background: hsl(
+    var(--color-passive-background-h),
+    var(--color-passive-background-s),
+    var(--color-passive-background-l)
+  );
+  --color-active-background: hsl(
+    var(--color-passive-background-h),
+    10%,
+    95%
+  );
+  --color-complementary-h: 0;
+  --color-complementary-s: 82%;
+  --color-complementary-l: 70%;
+  --color-complementary: hsl(
+    var(--color-complementary-h),
+    var(--color-primary-s),
+    var(--color-primary-l)
+  );
+  --color-faded-complementary: hsl(
+    var(--color-complementary-h),
+    var(--color-primary-s),
+    90%
+  );
+}

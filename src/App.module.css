@@ -1,0 +1,19 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: stretch;
+    background-color: var(--color-passive-background);
+}
+
+.Main {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Grow {
+    flex-grow: 1;
+}

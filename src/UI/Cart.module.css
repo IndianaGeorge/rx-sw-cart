@@ -1,0 +1,48 @@
+.Cart {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.Cart > * {
+    margin-bottom: 1rem;
+}
+
+.Cart > *:last-child {
+    margin-bottom: 0;
+}
+
+.Title {
+    align-self: flex-start;
+}
+
+.ItemList {
+    font-weight: bold;
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+.ItemList li {
+    border-bottom: 1px solid black;
+}
+
+.ItemList li:last-child {
+    border-bottom: none;
+}
+
+.Total {
+    text-decoration: underline;
+}
+
+.Cart button {
+    color: white;
+    background-color: var(--color-complementary);
+    border: solid 1px white;
+    border-radius: 1em;
+    margin-left: 0.5em;
+    font-weight: bold;
+}

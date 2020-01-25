@@ -1,0 +1,58 @@
+.ItemDetail {
+    margin-right: 1rem;
+    background-color: var(--color-active-background);
+}
+
+h1 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+.ItemDetail button {
+    color: white;
+    background-color: var(--color-complementary);
+    border: solid 1px white;
+    border-radius: 1em;
+    margin-left: 0.5em;
+    font-weight: bold;
+}
+
+.HeaderWrap {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr;
+    justify-items: stretch;
+    align-items: stretch;
+}
+
+.Label {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding: 1em;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: green;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.Header {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    background-color: var(--color-faded-primary);
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Body {
+    padding: 1rem;
+}
+
+.Body ul {
+    list-style-type: ">";
+}
