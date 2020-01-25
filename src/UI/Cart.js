@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { useBehaviorSubject } from 'react-rxjs-tools';
 import CartContext from '../Context/CartContext';
 import Styles from './Cart.module.css';
-import Overlay from 'react-loading-retry-overlay';
 
 export default ()=>{
     const CartController = useContext(CartContext);

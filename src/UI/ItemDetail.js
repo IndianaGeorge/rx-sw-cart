@@ -25,7 +25,7 @@ export default ()=>{
     };
     useEffect(()=>{
         detailController.getDetail(id);
-    },[]);
+    },[detailController,id]);
     return (
         <div className={Styles.ItemDetail}>
             <Overlay

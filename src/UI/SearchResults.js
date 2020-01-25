@@ -12,6 +12,7 @@ export default ()=>{
     const inCart = {};
     items.reduce((acc,item)=>{
         inCart[item.id] = true;
+        return 0;
     },0);
     const SearchController = useContext(SearchContext);
     const [results] = useBehaviorSubject(SearchController.GetResultsSubject());
