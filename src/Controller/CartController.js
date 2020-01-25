@@ -39,7 +39,7 @@ export default class CartController {
 
     remove(id) {
         const next = this.items$.getValue().filter(item=>item.id!==id);
-        this.item$.next(next);
+        this.items$.next(next);
         this.total$.next(next.reduce((acc,item)=>acc+(item.qty*item.unitCost),0));
     }
 }
