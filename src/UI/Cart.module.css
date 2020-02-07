@@ -24,10 +24,19 @@
     list-style: none;
     padding: 0;
     margin-top: 0;
+    Width: 95%
 }
 
 .ItemList li {
     border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ItemList li:hover {
+    background-color: var(--color-faded-primary);
+    color: black;
 }
 
 .ItemList li:last-child {
@@ -35,7 +44,10 @@
 }
 
 .Total {
-    text-decoration: underline;
+    border-top: solid 1px white;
+    padding-top: 1em;
+    width: 100%;
+    text-align: right;
 }
 
 .Cart button {

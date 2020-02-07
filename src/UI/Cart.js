@@ -19,8 +19,8 @@ export default ()=>{
             <ul className={Styles.ItemList}>
                 {items.map((item)=>
                     <li key={item.id}>
-                        <button onClick={removeItem.bind(null,item.id)}>X</button>
                         <span>{item.name} (x{item.qty})</span>
+                        <button onClick={removeItem.bind(null,item.id)}>X</button>
                     </li>
                 )}
             </ul>

@@ -19,7 +19,7 @@ export default ()=>{
               <Route exact path="/detail/:id" component={ItemDetail} />
             </Switch>
           </div>
-          <div>
+          <div className={Styles.Fixed}>
             <Cart />
           </div>
         </div>
