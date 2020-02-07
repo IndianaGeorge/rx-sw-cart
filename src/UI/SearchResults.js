@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import CartContext from '../Context/CartContext';
 import { useBehaviorSubject } from 'react-rxjs-tools';
 import SearchContext from '../Context/SearchContext';
@@ -17,6 +17,9 @@ export default ()=>{
     const SearchController = useContext(SearchContext);
     const [results] = useBehaviorSubject(SearchController.GetResultsSubject());
     const [status] = useBehaviorSubject(SearchController.GetStatusSubject());
+    useEffect(()=>{
+        SearchController.Clear();
+    },[]);
     return (
         <div className={Styles.SearchResults}>
             <Overlay

@@ -20,9 +20,28 @@ export default class Controller {
         return this.status$;
     }
 
-    Clear() {
-        this.results$.next([]);
-        this.status$.next(this.states.ok);
+    async Clear() {
+        this.status$.next(this.states.loading);
+        try {
+            const rawRes = await fetch('https://swapi.co/api/vehicles/', {
+                mode: 'cors',
+            });
+            const res = await rawRes.json();
+            const remap = res.results.map((item)=>{
+                const found = item.url.match(/\/(\d+)\/?$/);
+                return {
+                    name: item.name,
+                    id: found[1],
+                    cost_in_credits: item.cost_in_credits,
+                };
+            });
+            this.results$.next(remap);
+            this.status$.next(this.states.ok);
+        }
+        catch (err) {
+            this.status$.next(this.states.error);
+            console.error(err);
+        }
     }
 
     async Search(rawSpec) {
@@ -49,6 +68,9 @@ export default class Controller {
                 this.status$.next(this.states.error);
                 console.error(err);
             }
+        }
+        else {
+            this.Clear();
         }
     }
 
