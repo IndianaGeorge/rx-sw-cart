@@ -19,7 +19,7 @@ export default ()=>{
     const [status] = useBehaviorSubject(SearchController.GetStatusSubject());
     useEffect(()=>{
         SearchController.Clear();
-    },[]);
+    },[SearchController]);
     return (
         <div className={Styles.SearchResults}>
             <Overlay
