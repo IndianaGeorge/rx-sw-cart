@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 export default class CartController {
     constructor() {
         this.items$ = new BehaviorSubject([]);
-        this.total$ = new BehaviorSubject([]);
+        this.total$ = new BehaviorSubject(0);
     }
 
     getItemsSubject() {
