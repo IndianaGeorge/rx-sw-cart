@@ -17,8 +17,8 @@ const HeroBar = ({history})=>{
     }
     return (
         <div className={Styles.HeroBar}>
-            <form className={Styles.SearchForm} onSubmit={onFormSubmit}>
-                <input type="text" value={query} onChange={onChange}/>
+            <form className={Styles.SearchForm} onSubmit={onFormSubmit} role="search">
+                <input type="text" value={query} onChange={onChange} placeholder="Search vehicles..." role="searchbox"/>
                 <button type="submit">Search!</button>
             </form>
         </div>

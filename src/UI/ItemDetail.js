@@ -42,7 +42,7 @@ export default ()=>{
                                         <h3>{vehicle.model}</h3>
                                     </div>
                                     <div>
-                                        <h3>{vehicle.cost_in_credits} credits</h3>
+                                        <h3><span data-testid="price">{vehicle.cost_in_credits}</span> credits</h3>
                                         {
                                             canPurchase?
                                                 <button onClick={addToCart}>Add to cart</button>
@@ -60,14 +60,14 @@ export default ()=>{
                             </div>
                             <div className={Styles.Body}>
                                 <ul>
-                                    <li>Manufacturer : {vehicle.manufacturer}</li>
-                                    <li>Length : {vehicle.length}</li>
-                                    <li>Max speed : {vehicle.max_atmospheric_speed}</li>
-                                    <li>Crew : {vehicle.crew}</li>
-                                    <li>Passengers : {vehicle.passengers}</li>
-                                    <li>Cargo Capacity : {vehicle.cargo_capacity}</li>
-                                    <li>Consumables : {vehicle.consumables}</li>
-                                    <li>Class : {vehicle.vehicle_class}</li>
+                                    <li><span>Manufacturer</span> : <span>{vehicle.manufacturer}</span></li>
+                                    <li><span>Length</span> : <span>{vehicle.length}</span></li>
+                                    <li><span>Max speed</span> : <span>{vehicle.max_atmospheric_speed}</span></li>
+                                    <li><span>Crew</span> : <span>{vehicle.crew}</span></li>
+                                    <li><span>Passengers</span> : <span>{vehicle.passengers}</span></li>
+                                    <li><span>Cargo Capacity</span> : <span>{vehicle.cargo_capacity}</span></li>
+                                    <li><span>Consumables</span> : <span>{vehicle.consumables}</span></li>
+                                    <li><span>Class</span> : <span>{vehicle.vehicle_class}</span></li>
                                 </ul>
                             </div>
                         </div>

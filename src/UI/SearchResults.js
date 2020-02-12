@@ -26,10 +26,10 @@ export default ()=>{
                 error={status===SearchController.states.error}
                 loading={status===SearchController.states.loading}
             >
-                <ul className={Styles.ResultsList}>
+                <ul className={Styles.ResultsList} role="grid">
                         {results.map((item)=>
-                            <li key={item.id}>
-                                <Link className={Styles.Item} to={`/detail/${item.id}`}>
+                            <li key={item.id} role="row">
+                                <Link className={Styles.Item} to={`/detail/${item.id}`} role="gridcell">
                                     <span>{item.name}</span><span>{item.cost_in_credits} credits</span>
                                 </Link>
                                 {
