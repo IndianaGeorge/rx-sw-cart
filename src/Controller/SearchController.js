@@ -23,7 +23,7 @@ export default class Controller {
     async Clear() {
         this.status$.next(this.states.loading);
         try {
-            const rawRes = await fetch('https://swapi.co/api/vehicles/', {
+            const rawRes = await fetch(`${process.env.REACT_APP_API_URL}/vehicles/`, {
                 mode: 'cors',
             });
             const res = await rawRes.json();
@@ -49,7 +49,7 @@ export default class Controller {
         if (spec !=='') {
             this.status$.next(this.states.loading);
             try {
-                const rawRes = await fetch(`https://swapi.co/api/vehicles/?search=${spec}`,{
+                const rawRes = await fetch(`${process.env.REACT_APP_API_URL}/vehicles/?search=${spec}`,{
                     mode: 'cors'
                 });
                 const res = await rawRes.json();

@@ -23,7 +23,7 @@ export default class Controller {
     async getDetail(id) {
         this.status$.next(this.states.loading);
         try {
-            const rawRes = await fetch(`https://swapi.co/api/vehicles/${id}`,{
+            const rawRes = await fetch(`${process.env.REACT_APP_API_URL}/vehicles/${id}`,{
                 mode: 'cors'
             });
             const res = await rawRes.json();

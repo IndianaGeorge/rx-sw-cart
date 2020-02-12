@@ -9,7 +9,7 @@ beforeEach(() => {
       {
         name: 'test vehicle',
         cost_in_credits: 1,
-        url: 'https://swapi.co/api/vehicles/1/'
+        url: `${process.env.REACT_APP_API_URL}/vehicles/1/`,
       }
     ]
   }));
@@ -41,7 +41,7 @@ describe('App', ()=> {
     const searchResult = root.getByText('test vehicle');
     expect (searchResult).toBeInTheDocument();
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch).toHaveBeenCalledWith('https://swapi.co/api/vehicles/',{"mode":"cors"});
+    expect(global.fetch).toHaveBeenCalledWith(`${process.env.REACT_APP_API_URL}/vehicles/`,{"mode":"cors"});
   });
 
 
@@ -58,7 +58,7 @@ describe('App', ()=> {
         {
           name: 'result of search',
           cost_in_credits: 2,
-          url: 'https://swapi.co/api/vehicles/2/'
+          url: `${process.env.REACT_APP_API_URL}/vehicles/2/`
         }
       ]}
     ));
@@ -74,7 +74,7 @@ describe('App', ()=> {
       fireEvent.submit(searchForm);
     });
     expect(global.fetch).toHaveBeenCalledTimes(2);
-    expect(global.fetch).toHaveBeenLastCalledWith('https://swapi.co/api/vehicles/?search=mysearchstring',{"mode":"cors"});
+    expect(global.fetch).toHaveBeenLastCalledWith(`${process.env.REACT_APP_API_URL}/vehicles/?search=mysearchstring`,{"mode":"cors"});
     const searchResult = root.getByText('result of search');
     expect(searchResult).toBeInTheDocument();
   });
@@ -93,7 +93,7 @@ describe('App', ()=> {
         {
           name: 'result of search',
           cost_in_credits: 2,
-          url: 'https://swapi.co/api/vehicles/2/'
+          url: `${process.env.REACT_APP_API_URL}/vehicles/2/`
         }
       ]}
     ));
@@ -109,7 +109,7 @@ describe('App', ()=> {
       fireEvent.click(searchButton);
     });
     expect(global.fetch).toHaveBeenCalledTimes(2);
-    expect(global.fetch).toHaveBeenLastCalledWith('https://swapi.co/api/vehicles/?search=mysearchstring',{"mode":"cors"});
+    expect(global.fetch).toHaveBeenLastCalledWith(`${process.env.REACT_APP_API_URL}/vehicles/?search=mysearchstring`,{"mode":"cors"});
     const searchResult = root.getByText('result of search');
     expect(searchResult).toBeInTheDocument();
   });
@@ -135,10 +135,10 @@ describe('App', ()=> {
       consumables:"vehicleconsumables",
       vehicle_class:"vehicleclass",
       pilots:[],
-      films:["https://swapi.co/api/films/1/"],
+      films:[`${process.env.REACT_APP_API_URL}/films/1/`],
       created:"2014-12-10T16:01:52.434000Z",
       edited:"2014-12-22T18:21:15.552614Z",
-      url:"https://swapi.co/api/vehicles/6/",
+      url:`${process.env.REACT_APP_API_URL}/vehicles/6/`,
   }));  
     await act(async ()=>{
       fireEvent.click(item);
@@ -181,10 +181,10 @@ describe('App', ()=> {
       consumables:"vehicleconsumables",
       vehicle_class:"vehicleclass",
       pilots:[],
-      films:["https://swapi.co/api/films/1/"],
+      films:[`${process.env.REACT_APP_API_URL}/films/1/`],
       created:"2014-12-10T16:01:52.434000Z",
       edited:"2014-12-22T18:21:15.552614Z",
-      url:"https://swapi.co/api/vehicles/6/",
+      url:`${process.env.REACT_APP_API_URL}/vehicles/6/`,
   }));  
     await act(async ()=>{
       fireEvent.click(item);
