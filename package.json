@@ -11,7 +11,7 @@
     "react-loading-retry-overlay": "^1.0.0",
     "react-router-dom": "^5.1.2",
     "react-rxjs-tools": "^1.1.0",
-    "react-scripts": "3.3.0",
+    "react-scripts": "5.0.1",
     "rxjs": "^6.5.4"
   },
   "scripts": {
